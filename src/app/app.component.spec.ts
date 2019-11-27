@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'pidev-angular'`, () => {
+  it(`should have as title 'angular-firebase-role-based-authentication'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('pidev-angular');
+    expect(app.title).toEqual('angular-firebase-role-based-authentication');
   });
 
-  it('should render title', () => {
+  it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('pidev-angular app is running!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-firebase-role-based-authentication!');
   });
 });
