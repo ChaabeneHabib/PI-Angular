@@ -7,9 +7,11 @@ import { OffreComponent } from './offre/offre.component';
 import { SettingsComponent } from './entreprise/settings/settings.component';
 import { LogInComponent } from './user/log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterEntrepriseComponent } from './entreprise/register-entreprise/register-entreprise.component';
 const routes: Routes = [
   
   { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'registerEntreprise', component:RegisterEntrepriseComponent },
   {path:"home",component:HomeComponent,
     children:[
     {path:"entreprise",component:SettingsComponent},

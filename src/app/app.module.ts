@@ -38,6 +38,7 @@ import {
 } from '@angular/material';
 import { LogInComponent } from './user/log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterEntrepriseComponent } from './entreprise/register-entreprise/register-entreprise.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { HomeComponent } from './home/home.component';
     OffreComponent,
     SettingsComponent,
     LogInComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterEntrepriseComponent
   ],
   imports: [
     BrowserAnimationsModule,
