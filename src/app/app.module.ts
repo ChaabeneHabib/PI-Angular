@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import { OffreComponent } from './offre/offre.component';
 import { OffreService } from './offre/offre.service';
 import { SettingsComponent } from './entreprise/settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CollapseModule, WavesModule } from 'angular-bootstrap-md';
+
 import {
   MatButtonModule,
   MatToolbarModule,
@@ -39,7 +42,8 @@ import {
 import { LogInComponent } from './user/log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterEntrepriseComponent } from './entreprise/register-entreprise/register-entreprise.component';
-
+import { DropdownModule } from 'angular-bootstrap-md';
+import { EntrepriseService } from './entreprise/entreprise.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,11 +85,16 @@ import { RegisterEntrepriseComponent } from './entreprise/register-entreprise/re
     MatTooltipModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MDBBootstrapModule,
+    DropdownModule,
+     CollapseModule, 
+     WavesModule
+
 
     
   
-  ],
+  ],schemas: [CUSTOM_ELEMENTS_SCHEMA],
     exports: [
      MatButtonModule,
      MatToolbarModule,
@@ -105,7 +114,7 @@ import { RegisterEntrepriseComponent } from './entreprise/register-entreprise/re
      MatPaginatorModule,
      MatCardModule
   ],
-  providers: [UserService,HttpClient,OffreService,MatDatepickerModule],
+  providers: [UserService,HttpClient,OffreService,MatDatepickerModule,EntrepriseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

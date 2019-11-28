@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EntrepriseService } from '../entreprise.service';
 
 @Component({
   selector: 'app-register-entreprise',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterEntrepriseComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public serviceEnt : EntrepriseService) { }
+  login(email,password)
+  {
+    console.log(email+ " pass : "+password);
+    this.serviceEnt.authentificate(email,password).subscribe(res =>{
+        console.log('sa7it');
+    });
+  }
   ngOnInit() {
   }
 
