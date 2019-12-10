@@ -28,4 +28,8 @@ export class UserService {
   {
     return this.http.post<any>('http://127.0.0.1:9080/pidev-web/rest/employer/auth?login='+email+'&password='+password,this.httpOptions);
   }
+  loggedIn()
+  {
+    return  !!localStorage.getItem('token')
+  }
 }

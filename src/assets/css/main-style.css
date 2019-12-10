@@ -3619,7 +3619,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	font-size: 16px;
 	line-height: 24px;
 	color: #333333;
-	background-color: #ffe8fa;
+	background-color: transparent;
 	background-image: none;
 	border: 1px solid #cecece;
 	transition: all 0.3s;
@@ -3632,7 +3632,7 @@ select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:f
 }
 select[disabled], textarea[disabled], input[type="text"][disabled], input[type="password"][disabled], input[type="datetime"][disabled], input[type="datetime-local"][disabled], input[type="date"][disabled], input[type="month"][disabled], input[type="time"][disabled], input[type="week"][disabled], input[type="number"][disabled], input[type="email"][disabled], input[type="url"][disabled], input[type="search"][disabled], input[type="tel"][disabled], input[type="color"][disabled], select[readonly], textarea[readonly], input[type="text"][readonly], input[type="password"][readonly], input[type="datetime"][readonly], input[type="datetime-local"][readonly], input[type="date"][readonly], input[type="month"][readonly], input[type="time"][readonly], input[type="week"][readonly], input[type="number"][readonly], input[type="email"][readonly], input[type="url"][readonly], input[type="search"][readonly], input[type="tel"][readonly], input[type="color"][readonly], fieldset[disabled] select, fieldset[disabled] textarea, fieldset[disabled] input[type="text"], fieldset[disabled] input[type="password"], fieldset[disabled] input[type="datetime"], fieldset[disabled] input[type="datetime-local"], fieldset[disabled] input[type="date"], fieldset[disabled] input[type="month"], fieldset[disabled] input[type="time"], fieldset[disabled] input[type="week"], fieldset[disabled] input[type="number"], fieldset[disabled] input[type="email"], fieldset[disabled] input[type="url"], fieldset[disabled] input[type="search"], fieldset[disabled] input[type="tel"], fieldset[disabled] input[type="color"] {
 	cursor: not-allowed;
-	background-color: #82465A;
+	background-color: #000;
 	opacity: 1;
 }
 select[disabled], textarea[disabled], input[type="text"][disabled], input[type="password"][disabled], input[type="datetime"][disabled], input[type="datetime-local"][disabled], input[type="date"][disabled], input[type="month"][disabled], input[type="time"][disabled], input[type="week"][disabled], input[type="number"][disabled], input[type="email"][disabled], input[type="url"][disabled], input[type="search"][disabled], input[type="tel"][disabled], input[type="color"][disabled], fieldset[disabled] select, fieldset[disabled] textarea, fieldset[disabled] input[type="text"], fieldset[disabled] input[type="password"], fieldset[disabled] input[type="datetime"], fieldset[disabled] input[type="datetime-local"], fieldset[disabled] input[type="date"], fieldset[disabled] input[type="month"], fieldset[disabled] input[type="time"], fieldset[disabled] input[type="week"], fieldset[disabled] input[type="number"], fieldset[disabled] input[type="email"], fieldset[disabled] input[type="url"], fieldset[disabled] input[type="search"], fieldset[disabled] input[type="tel"], fieldset[disabled] input[type="color"] {

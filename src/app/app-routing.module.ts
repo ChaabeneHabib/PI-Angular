@@ -8,10 +8,21 @@ import { SettingsComponent } from './entreprise/settings/settings.component';
 import { LogInComponent } from './user/log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterEntrepriseComponent } from './entreprise/register-entreprise/register-entreprise.component';
+import { AceuilEntrepriseComponent } from './entreprise/aceuil-entreprise/aceuil-entreprise.component';
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'registerEntreprise', component:RegisterEntrepriseComponent },
+  { path: 'registerEntreprise', component:RegisterEntrepriseComponent  ,
+
+     canActivate:[AuthGuard],
+ 
+  },  
+  { path: 'AcceuilEntreprise', component:AceuilEntrepriseComponent , 
+    children:[
+    {path:"entreprise",component:SettingsComponent},
+    {path:"offre",component:OffreComponent}]
+   },
   {path:"home",component:HomeComponent,
     children:[
     {path:"entreprise",component:SettingsComponent},

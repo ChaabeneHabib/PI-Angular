@@ -16,4 +16,8 @@ export class OffreService {
   {
      return  this.http.get<any[]>('http://127.0.0.1:9080/pidev-web/rest/offre/all');
   }
+  getNotificationOffre()
+{
+  return this.http.get<any[]>('http://127.0.0.1:9080/pidev-web/rest/offre/GetNotifOffre/15');
+}
 }
