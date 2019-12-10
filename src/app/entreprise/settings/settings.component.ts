@@ -19,7 +19,7 @@ export class SettingsComponent implements OnInit {
   offreNonPublier:boolean=false;
   offrePlusRecent:boolean=false;
   offrePublier:boolean=true;//initiallement publier
-  
+  offresNonTraiter:any[]=[];
   user:any;
   offres:any[]=[];
   profil:any=[];
@@ -112,6 +112,7 @@ test():Boolean
     this.getAllOffreByEntrperise();
     this.getAbonneeEntreprise(this.user.id);
     this.showEmployer();
+    this.showOffreNonTraiter();
      /*  this.route.params.subscribe(params => {
         let id = params['id'];
       
@@ -221,8 +222,22 @@ test():Boolean
     console.log(Grade,Username,email,name,prenom,password);
     this.serviceEnt.addEmployer(Grade,Username,email,name,prenom,password,this.user.id).subscribe(res=>{
       console.log("sucess");
-      
-    }) 
+      var messages ="votre compte dans notre entreprise est login "+Username + " passowrd : " + password;
+      var subject = 'authentification entreprise '+this.user.login;
+      this.serviceEnt.SentMailEmployer(email,subject,messages).subscribe(res=>{
+        console.log("message envoyer au candidat ");
+      });
+    });
+  }
+  supEmployer(id)
+  {
+    this.serviceEnt.deleteEmployer(id).subscribe(res=>
+      {
+        console.log("supprission est terminer");
+        this.showEmployer();
+      });
+    console.log(id);
+    
   }
   showEmployer()
   {
@@ -232,5 +247,36 @@ test():Boolean
         this.listEmployer=res;
         console.log(this.listEmployer);
       });
+  }
+  addOfreRH(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff)
+  {
+    console.log(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff);
+    this.serviceEnt.AddOffreByRHAndManager(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff).subscribe(res=>{
+      console.log("offre ajouter");
+    })
+  }
+  showOffreNonTraiter()
+  {
+    this.serviceEnt.GetOffreNonPublier(this.user.id).subscribe(res=>{
+      console.log("non Publier")
+      this.offresNonTraiter=res;
+
+      console.log(this.offresNonTraiter);
+    });
+  }
+  confirmerOffre(on)
+  {
+    console.log(on);
+    this.serviceEnt.accepterOffre(on.id).subscribe(res=>{
+      console.log("offre publier et accepter");
+      this.showOffreNonTraiter();
+    });
+  }
+  addOfreChefEquipe(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM)
+  {
+    console.log(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM);
+    this.serviceEnt.AddOffreByRHAndManager(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM).subscribe(res=>{
+      console.log("offre ajouter");
+    });
   }
 }
