@@ -53,6 +53,8 @@ import { TokenInterceptorService } from './user/token-interceptor.service';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { AceuilEmployerComponent } from './entreprise/aceuil-employer/aceuil-employer.component';
+import { SettingEmployerComponent } from './entreprise/setting-employer/setting-employer.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -107,7 +109,9 @@ const customNotifierOptions: NotifierOptions = {
     LogInComponent,
     HomeComponent,
     RegisterEntrepriseComponent,
-    AceuilEntrepriseComponent
+    AceuilEntrepriseComponent,
+    AceuilEmployerComponent,
+    SettingEmployerComponent
   ],
   imports: [
     

@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterEntrepriseComponent } from './entreprise/register-entreprise/register-entreprise.component';
 import { AceuilEntrepriseComponent } from './entreprise/aceuil-entreprise/aceuil-entreprise.component';
 import { AuthGuard } from './auth.guard';
+import { AceuilEmployerComponent } from './entreprise/aceuil-employer/aceuil-employer.component';
+import { SettingEmployerComponent } from './entreprise/setting-employer/setting-employer.component';
 const routes: Routes = [
   
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -18,6 +20,12 @@ const routes: Routes = [
      canActivate:[AuthGuard],
  
   },  
+  { path: 'AcceuilEmployer', component:AceuilEmployerComponent 
+  ,  children:[
+    {path:"employer",component:SettingEmployerComponent},
+    {path:"offre",component:OffreComponent}] 
+  },
+
   { path: 'AcceuilEntreprise', component:AceuilEntrepriseComponent , 
     children:[
     {path:"entreprise",component:SettingsComponent},

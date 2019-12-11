@@ -1,0 +1,1060 @@
+<body>
+        <div id="main-wrapper">
+          <!-- end toolbar -->
+          <!-- end .uou-block-2b -->
+          <div class="compny-profile">
+            <!-- SUB Banner -->
+            <div class="profile-bnr user-profile-bnr">
+              <div class="container">
+                <div class="pull-left">
+                  <h2>Michael Peterson</h2>
+                  <h5>Front-End Developer</h5>
+                </div>
+      
+      
+                <!-- Top Riht Button -->
+                <div class="right-top-bnr">
+                  <div class="connect">
+                      <a data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-user-plus"></i>
+                      Connect
+                    </a>
+                    <a href="#.">
+                      <i class="fa fa-share-alt"></i>
+                      Share
+                    </a>
+                    <div class="bt-ns">
+                      <a href="#.">
+                        <i class="fa fa-bookmark-o"></i>
+                      </a>
+                      <a href="#.">
+                        <i class="fa fa-envelope-o"></i>
+                      </a>
+                      <a href="#.">
+                        <i class="fa fa-exclamation"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Modal POPUP -->
+              <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="container">
+      
+                      <h3>Ajout profil</h3>
+                      <!-- Forms -->
+                   
+      
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+      
+            </div>
+      
+            <!-- Profile Company Content -->
+            <div class="profile-company-content user-profile main-user" data-bg-color="f5f5f5">
+              <div class="container">
+                <div class="row">
+      
+                  <!-- Nav Tabs -->
+                  <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
+                      <li><a data-toggle="tab" href="#jobs">Jobs</a></li>
+                   <!--  <li><a data-toggle="tab" href="#contacts"> Employer</a></li>-->  
+                      <li *ngIf="isRh"><a data-toggle="tab" href="#portfolio">RH</a></li>
+                      <li *ngIf="ischef"><a data-toggle="tab" href="#blog-tab">chef equipes</a></li>
+                      <li><a data-toggle="tab" href="#flowrs-tabs">Followers </a></li>
+                    </ul>
+                  </div>
+                  <!-- Tab Content -->
+                  <div class="col-md-12">
+                    <div class="tab-content">
+      
+                      <!-- PROFILE -->
+                      <div id="profile" class="tab-pane fade in active">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="profile-main">
+                              <h3>About</h3>
+                              <div class="profile-in">
+                                <div class="media-left">
+                                  <div class="img-profile"> <img class="media-object" src="assets/images/avatar-1.jpg" alt="">
+                                  </div>
+                                </div>
+                                <div class="media-body">
+                                  <p>{{profil.description}}</p>
+                                </div>
+                              </div>
+                            </div>
+      
+      
+                          </div>
+      
+                    
+                          <div class="col-md-8">
+                       
+                            <div class="sidebar">
+                              <h5 class="main-title">Employer </h5>
+      
+                              <!-- Similar -->
+                            
+                                            <div class="similar" *ngFor="let e of listEmployer">
+                                <div class="media">
+                                  <div class="media-left">
+                                    <div class="inn-simi">
+                                      <img class="media-object" src="assets/images/med-avatar.jpg" alt="">
+      
+                                    </div>
+                                  </div>
+                                  <div class="media-body">
+                                    <h5> {{e.nom}}</h5>
+                                    <p> {{e.grade}}</p>
+                                    <p></p>
+                                   
+                                    <div class="share-w">
+                                            <a ><i class="fa fa-bookmark-o"></i></a>
+                                            <a href="#."> <i class="fa fa-envelope-o"></i></a>
+                                            <a href="#."> <i class="fa fa-eye"></i></a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                             
+                          
+                            </div>
+                          </div>
+                          <!-- Col -->
+                          <div class="col-md-4">
+      
+                            <!-- Professional Details -->
+                            <div class="sidebar">
+                              <h5 class="main-title">Professional Details</h5>
+                              <div class="sidebar-information">
+                                <ul class="single-category">
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Location</h6>
+                                    <span class="subtitle col-xs-6">{{profil.location}}</span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Secteur</h6>
+                                    <span class="subtitle col-xs-6">{{profil.secteur}}</span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Site Web</h6>
+                                    <span class="subtitle col-xs-6">{{profil.siteWeb}}</span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Taille Entreprise</h6>
+                                    <span class="subtitle col-xs-6">{{profil.tailleEntreprise}}</span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">type Societe</h6>
+                                    <span class="subtitle col-xs-6">{{profil.typeSociete}}</span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Career Lavel</h6>
+                                    <span class="subtitle col-xs-6">Mid-Level</span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Fondateur</h6>
+                                    <span class="subtitle col-xs-6">{{user.nom}} ** {{user.prenom}}</span>
+                                  </li>
+      
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">E-mail</h6>
+                                    <span class="subtitle col-xs-6">{{user.mail}}<a href="#."></a></span>
+                                  </li>
+      
+                                </ul>
+                              </div>
+                            </div>
+      
+                            <!-- Rating -->
+                            <div class="sidebar">
+                              <h5 class="main-title">Rating</h5>
+                              <div class="sidebar-information">
+                                <ul class="single-category com-rate">
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Expertise:</h6>
+                                    <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
+                                        class="fa fa-star-o"></i></span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Knowledge:</h6>
+                                    <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                        class="fa fa-star"></i> <i class="fa fa-star-half-o"></i> <i
+                                        class="fa fa-star-o"></i></span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Quality::</h6>
+                                    <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i></span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Price:</h6>
+                                    <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i
+                                        class="fa fa-star-o"></i></span>
+                                  </li>
+                                  <li class="row">
+                                    <h6 class="title col-xs-6">Services:</h6>
+                                    <span class="col-xs-6"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i></span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+      
+                            <!-- Social Profiles -->
+                            <div class="sidebar">
+                              <h5 class="main-title">Social Profiles</h5>
+                              <ul class="socil">
+                                <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#."><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#."><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <!-- Jobs -->
+                      <div id="jobs" class="tab-pane fade">
+                        <form>
+                          <div class="header-listing">
+                            <h6>Sort by</h6>
+                            <div class="custom-select-box">
+                              <select name="order" class="custom-select" (change)="onChange($event.target.value)">
+      
+                                <option *ngFor="let l of listRech">{{l}}</option>
+      
+                              </select>
+                            </div>
+                            <ul class="listing-views">
+                              <li class="active"><a href="#"><i class="fa fa-list"></i></a></li>
+                              <li><a href="#"><i class="fa fa-th"></i></a></li>
+                              <li><a href="#"><i class="fa fa-th-large"></i></a></li>
+                            </ul>
+      
+      
+                          </div>
+                        </form>
+      
+      
+                    <!--
+                            <button (click)="addOffre()" *ngIf="on">Add Offre</button>
+                    -->    
+      
+                        <notifier-container></notifier-container>
+                        <!--
+
+                            <div *ngIf="offer">
+                          <div class="col-md-12">
+                            <form>
+                              <div class="profile-main">
+                                <h3>Offres</h3>
+                                <div class="profile-in">
+                                  <div class="media-middle">
+      
+                                  </div>
+                                  <div class="media-body">
+      
+      
+                                    <div class="row" style="display: flex;justify-items: center;">
+                                      <div class="col-md-3">
+                                        <span>Location </span>
+                                        <input type="text" class="form-control" placeholder="Location"
+                                          [(ngModel)]="locationOffre" name="locationOffre">
+                                      </div>
+                                      <div class="col-sm-4">
+                                        Diplome <input type="text" class="form-control" placeholder="diplome"
+                                          [(ngModel)]="diplome" name="diplome">
+                                      </div>
+                                    </div>
+      
+                                    <div class="row">
+                                      <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="name" [(ngModel)]="name"
+                                          name="name">
+                                      </div>
+      
+                                    </div>
+                                    <div class="row">
+      
+                                      <div class="col-md-3">
+                                       
+                                        <div class="md-form">
+                                                <label for="form7">Material textarea</label>
+                                                <i class="fas fa-pencil-alt prefix"></i>
+                                                <textarea id="form10" class="md-textarea form-control" rows="3"
+                                                  [(ngModel)]="descriptionOffre" name="descriptionOffre"></textarea>
+                                              </div>
+                                         
+            
+                                            </div>
+                                          </div><br><br>
+                                          <div>
+                                            <input [owlDateTime]="dt3" placeholder="Date Time" [(ngModel)]="dateOffre"
+                                              name="dateOffre">
+                                            <span [owlDateTimeTrigger]="dt3"><i class="fa fa-calendar"></i></span>
+                                            <owl-date-time #dt3></owl-date-time>
+                                          </div>
+                                          <div>
+            
+                                            <button (click)="addOfre(locationOffre,diplome,name,descriptionOffre,dateOffre)"
+                                              class="btn btn-info btn-lg">Ajout</button>
+                                          </div>
+                                          <div class="modal fade" id="add" role="dialog">
+                                            <div class="modal-dialog">
+            
+                                           
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                  <h4 class="modal-title">Modal Header</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <p>Some text in the modal.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                              </div>
+            
+                                            </div>
+                                          </div>
+            
+                                        </div>
+                                      </div>
+                                    </div>
+            
+                                  </form>
+                                </div>
+            
+                              </div>
+
+                        -->
+                        <div class="listing listing-1">
+                          <div class="listing-section">
+                            <div *ngIf="offrePublier">
+                          
+                                      <div class="boucle" *ngFor="let o of offres">
+                                <div class="listing-ver-3">
+                                  <div class="listing-heading">
+                                    <h5>{{o.name}}</h5>
+                                    <ul class="bookmark list-inline">
+                                      <li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-share"></i></a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="listing-inner">
+                                    <div class="listing-content">
+                                      <h6 class="title-company">Mars Planet Telecommunications Inc.</h6>
+                                      <span class="location"> <i class="fa fa-map-marker"></i>{{o.location}} </span>
+                                      <span class="type-work full-time"> Full Time -- {{  o.date  | date: 'yyyy-MM-dd' }}
+                                      </span>
+      
+                                      <p> <b>Description : </b>{{o.desciption}}<a href="single_job.html">read more</a></p>
+      
+                                      <h6 class="title-tags">Skills required:</h6>
+                                      <ul class="tags list-inline">
+                                        <li><a href="#">Javascript</a></li>
+                                        <li><a href="#">Wordpress</a></li>
+                                        <li><a href="#">Presta</a></li>
+                                        <li><a href="#">Sass</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="listing-tabs">
+                                    <ul>
+                                      <li><a href="#"><i class="fa fa-envelope"></i> {{user.mail}}</a></li>
+                                      <li><a href="#"><i class="fa fa-phone"></i> 012 345 678</a></li>
+                                      <li><a href="#"><i class="fa fa-globe"></i>{{profil.siteWeb}}</a></li>
+                                      <li class="share-button"> <a href="#"><i class="fa fa-share"></i> Share</a>
+                                        <div class="contact-share">
+                                          <ul>
+                                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                                          </ul>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+      
+                              </div>
+
+                         
+                            </div>
+      
+                            <div *ngIf="offreNonPublier">
+                          
+                                  <div class="boucle" *ngFor="let o of offres">
+                                <div class="listing-ver-3">
+                                  <div class="listing-heading">
+                                    <h5>{{o.name}}</h5>
+                                    <ul class="bookmark list-inline">
+                                      <li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-share"></i></a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="listing-inner">
+                                    <div class="listing-content">
+                                      <h6 class="title-company">Mars Planet Telecommunications Inc.</h6>
+                                      <span class="location"> <i class="fa fa-map-marker"></i>{{o.location}} </span>
+                                      <span class="type-work full-time"> Full Time </span>
+                                      <p>{{o.desciption}}<a href="single_job.html">read more</a></p>
+                                      <h6 class="title-tags">Skills required:</h6>
+                                      <ul class="tags list-inline">
+                                        <li><a href="#">Javascript</a></li>
+                                        <li><a href="#">Wordpress</a></li>
+                                        <li><a href="#">Presta</a></li>
+                                        <li><a href="#">Sass</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="listing-tabs">
+                                    <ul>
+                                      <li><a href="#"><i class="fa fa-envelope"></i> {{user.mail}}</a></li>
+                                      <li><a href="#"><i class="fa fa-phone"></i> 012 345 678</a></li>
+                                      <li><a href="#"><i class="fa fa-globe"></i>{{profil.siteWeb}}</a></li>
+                                      <li class="share-button"> <a href="#"><i class="fa fa-share"></i> Share</a>
+                                        <div class="contact-share">
+                                          <ul>
+                                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                                          </ul>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+      
+                              </div>
+
+                         
+                            </div>
+      
+      
+                            <div *ngIf="offrePlusRecent">
+                                
+
+                                <div class="boucle" *ngFor="let o of offres">
+                                <div class="listing-ver-3">
+                                  <div class="listing-heading">
+                                    <h5>{{o.name}}</h5>
+                                    <ul class="bookmark list-inline">
+                                      <li><a href="#"><i class="fa fa-bookmark"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-share"></i></a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="listing-inner">
+                                    <div class="listing-content">
+                                      <h6 class="title-company">Mars Planet Telecommunications Inc.</h6>
+                                      <span class="location"> <i class="fa fa-map-marker"></i>{{o.location}} </span>
+                                      <span class="type-work full-time"> Full Time </span>
+                                      <p>{{o.desciption}}<a href="single_job.html">read more</a></p>
+                                      <h6 class="title-tags">Skills required:</h6>
+                                      <ul class="tags list-inline">
+                                        <li><a href="#">Javascript</a></li>
+                                        <li><a href="#">Wordpress</a></li>
+                                        <li><a href="#">Presta</a></li>
+                                        <li><a href="#">Sass</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="listing-tabs">
+                                    <ul>
+                                      <li><a href="#"><i class="fa fa-envelope"></i> {{user.mail}}</a></li>
+                                      <li><a href="#"><i class="fa fa-phone"></i> 012 345 678</a></li>
+                                      <li><a href="#"><i class="fa fa-globe"></i>{{profil.siteWeb}}</a></li>
+                                      <li class="share-button"> <a href="#"><i class="fa fa-share"></i> Share</a>
+                                        <div class="contact-share">
+                                          <ul>
+                                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                                          </ul>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+      
+                              </div>
+                                   
+                            </div>
+      
+                          </div>
+                        </div>
+      
+                      </div>
+      
+                      <!-- Contact -->
+      
+                      <!-- Portfolio -->
+      
+                      <div id="portfolio" class="tab-pane fade">
+                        <div class="profile-main">
+                          <h3>Portfolio</h3>
+                          <div class="profile-in">
+                            <div class="uou-portfolio">
+                              <!-- Portfolio Item -->
+                              <section class="portfolio">
+                                <div>
+                                  <div class="col-md-12">
+                                    <form>
+                                      <div class="profile-main">
+                                        <h3>Offres By RH </h3>
+                                        <div class="profile-in">
+                                          <div class="media-middle">
+      
+                                          </div>
+                                          <div class="media-body">
+      
+      
+                                            <div class="row" style="display: flex;justify-items: center;">
+                                              <div class="col-md-3">
+                                                <span>Location </span>
+                                                <input type="text" class="form-control" placeholder="Location"
+                                                  [(ngModel)]="locationOff" name="locationOff">
+                                              </div>
+                                              <div class="col-sm-4">
+                                                Diplome <input type="text" class="form-control" placeholder="diplome"
+                                                  [(ngModel)]="diplomeOff" name="diplomeOff">
+                                              </div>
+                                            </div>
+      
+                                            <div class="row">
+                                              <div class="col-md-3">
+                                                <input type="text" class="form-control" placeholder="name"
+                                                  [(ngModel)]="nameOff" name="nameOff">
+                                              </div>
+      
+                                            </div>
+                                            <div class="row">
+      
+                                              <div class="col-md-3">
+                                                <!--Material textarea-->
+                                                <div class="md-form">
+                                                  <label for="form7">Description</label>
+                                                  <i class="fas fa-pencil-alt prefix"></i>
+                                                  <textarea id="form11" class="md-textarea form-control" rows="3"
+                                                    [(ngModel)]="descriptionOffreOff" name="descriptionOffreOff"></textarea>
+                                                </div>
+                                                <!--Textarea with icon prefix-->
+      
+                                              </div>
+                                            </div><br><br>
+                                            <div>
+                                              <input [owlDateTime]="dt4" placeholder="Date Time" [(ngModel)]="dateOffreOff"
+                                                name="dateOffreOff">
+                                              <span [owlDateTimeTrigger]="dt4"><i class="fa fa-calendar"></i></span>
+                                              <owl-date-time #dt4></owl-date-time>
+                                            </div>
+                                            <div>
+      
+                                              <button
+                                                (click)="addOfreRH(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff)"
+                                                class="btn btn-info btn-lg">Ajouter</button>
+                                            </div>
+                                            <div class="modal fade" id="add" role="dialog">
+                                              <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Modal Header</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <p>Some text in the modal.</p>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                      data-dismiss="modal">Close</button>
+                                                  </div>
+                                                </div>
+      
+                                              </div>
+                                            </div>
+      
+                                          </div>
+                                        </div>
+                                      </div>
+      
+                                    </form>
+                                  </div>
+      
+                                </div>
+                              </section>
+      
+                              <h3>Liste Offre Non Traiter</h3>
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nom Offre</th>
+                                    <th scope="col">Description</th>
+                                    <th scope=""> Status</th>
+                                    <th scope="col">decision </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <!--
+                                           <tr *ngFor="let on of offresNonTraiter">
+                                    <th scope="row">1</th>
+                                    <td>{{on.name}}</td>
+                                    <td>{{on.desciption}}</td>
+                                    <td>{{on.etat}}</td>
+                                    <td>
+                                      <button (click)="confirmerOffre(on)">confirmer</button>
+                                      <button>refuser</button>
+                                    </td>
+                                  </tr>
+                                    -->
+                               
+      
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- end uou-portfolio -->
+                          </div>
+                        </div>
+                      </div>
+      
+                      <!-- Blog Post -->
+                      <div id="blog-tab" class="tab-pane fade">
+                        <div class="profile-main">
+                          <h3>Blog Post</h3>
+                          <div class="profile-in">
+                            <div class="row">
+                              <div>
+                                <div class="col-md-12">
+                                  <form>
+                                    <div class="profile-main">
+                                      <h3>Offres By Cheff d'equipe </h3>
+                                      <div class="profile-in">
+                                        <div class="media-middle">
+      
+                                        </div>
+                                        <div class="media-body">
+      
+      
+                                          <div class="row" style="display: flex;justify-items: center;">
+                                            <div class="col-md-3">
+                                              <span>Location </span>
+                                              <input type="text" class="form-control" placeholder="Location"
+                                                [(ngModel)]="locationM" name="locationM">
+                                            </div>
+                                            <div class="col-sm-4">
+                                              Diplome <input type="text" class="form-control" placeholder="diplome"
+                                                [(ngModel)]="diplomeM" name="diplomeM">
+                                            </div>
+                                          </div>
+      
+                                          <div class="row">
+                                            <div class="col-md-3">
+                                              <input type="text" class="form-control" placeholder="name" [(ngModel)]="nameM"
+                                                name="nameM">
+                                            </div>
+      
+                                          </div>
+                                          <div class="row">
+      
+                                            <div class="col-md-3">
+                                              <!--Material textarea-->
+                                              <div class="md-form">
+                                                <label for="form7">Description</label>
+                                                <i class="fas fa-pencil-alt prefix"></i>
+                                                <textarea id="form12" class="md-textarea form-control" rows="3"
+                                                  [(ngModel)]="descriptionOffreM" name="descriptionOffreM"></textarea>
+                                              </div>
+                                              <!--Textarea with icon prefix-->
+      
+                                            </div>
+                                          </div><br><br>
+                                          <div>
+                                            <input [owlDateTime]="dt5" placeholder="Date Time" [(ngModel)]="dateOffreM"
+                                              name="dateOffreM">
+                                            <span [owlDateTimeTrigger]="dt5"><i class="fa fa-calendar"></i></span>
+                                            <owl-date-time #dt5></owl-date-time>
+                                          </div>
+                                          <div>
+      
+                                            <button
+                                              (click)="addOfreChefEquipe(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM)"
+                                              class="btn btn-info btn-lg">Ajouter</button>
+                                          </div>
+                                          <div class="modal fade" id="add" role="dialog">
+                                            <div class="modal-dialog">
+                                              <!-- Modal content-->
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                  <h4 class="modal-title">Modal Header</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <p>Some text in the modal.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">Close</button>
+                                                </div>
+                                              </div>
+      
+                                            </div>
+                                          </div>
+      
+                                        </div>
+                                      </div>
+                                    </div>
+      
+                                  </form>
+                                </div>
+      
+                              </div>
+                            </div>
+                            <!-- end row -->
+      
+                            <!-- end blog-content -->
+      
+                          </div>
+                        </div>
+                      </div>
+      
+                      <!-- Blog Post -->
+                      <div id="Con-tab" class="tab-pane fade">
+      
+                      </div>
+      
+                      <!-- Blog Post -->
+                      <div id="flowrs-tabs" class="tab-pane fade">
+                        <div class="profile-main">
+                          <h3>Followers {{user.login}}</h3>
+                          <div class="profile-in">
+                            <div class="folow-persons">
+                              <ul>
+      
+                                <!-- MEMBER -->
+                              <!--
+
+                                  <li *ngFor="let abonee of listAbonnee">
+                                  <div class="row">
+                                    <div class="col-xs-4">
+                                     
+                                      <div class="checkbox">
+                                            <input id="checkbox2-1" class="styled" type="checkbox">
+                                            <label for="checkbox2-1"></label>
+                                          </div>
+                                        
+                                          <div class="fol-name">
+                                            <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                            <h6>{{abonee.login}}</h6>
+                                            <span>Web Developer</span>
+                                          </div>
+                                        </div>
+                                       
+                                        <div class="col-xs-3 n-p-r n-p-l"> <span>{{abonee.mail}}</span> </div>
+                                       
+                                        <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                      
+                                        <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                      </div>
+                                    </li>
+          
+                              -->
+                                <!-- MEMBER -->
+      
+                                <!-- MEMBER -->
+      
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <!-- Blog Post -->
+                      <div id="foll-tabs" class="tab-pane fade">
+                        <div class="profile-main">
+                          <h3>Following</h3>
+                          <div class="profile-in">
+                            <div class="folow-persons">
+                              <ul>
+      
+                                <!-- MEMBER -->
+                                <li>
+                                  <div class="row">
+                                    <div class="col-xs-4">
+                                      <!-- Check Box -->
+                                      <div class="checkbox">
+                                        <input id="checkbox3-1" class="styled" type="checkbox">
+                                        <label for="checkbox3-1"></label>
+                                      </div>
+                                      <!-- Name -->
+                                      <div class="fol-name">
+                                        <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                        <h6>Collin Weiland</h6>
+                                        <span>Web Developer</span>
+                                      </div>
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="col-xs-3 n-p-r n-p-l"> <span>San Francisco, USA</span> </div>
+                                    <!-- Network -->
+                                    <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                    <!-- Connections -->
+                                    <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                  </div>
+                                </li>
+      
+                                <!-- MEMBER -->
+                                <li>
+                                  <div class="row">
+                                    <!-- Title -->
+                                    <div class="col-xs-4">
+                                      <!-- Check Box -->
+                                      <div class="checkbox">
+                                        <input id="checkbox3-2" class="styled" type="checkbox">
+                                        <label for="checkbox3-2"></label>
+                                      </div>
+                                      <!-- Name -->
+                                      <div class="fol-name">
+                                        <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                        <h6>Collin Weiland</h6>
+                                        <span>Web Developer</span>
+                                      </div>
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="col-xs-3 n-p-r n-p-l"> <span>San Francisco, USA</span> </div>
+                                    <!-- Network -->
+                                    <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                    <!-- Connections -->
+                                    <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                  </div>
+                                </li>
+      
+                                <!-- MEMBER -->
+                                <li>
+                                  <div class="row">
+                                    <!-- Title -->
+                                    <div class="col-xs-4">
+                                      <!-- Check Box -->
+                                      <div class="checkbox">
+                                        <input id="checkbox3-3" class="styled" type="checkbox">
+                                        <label for="checkbox3-3"></label>
+                                      </div>
+                                      <!-- Name -->
+                                      <div class="fol-name">
+                                        <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                        <h6>Collin Weiland</h6>
+                                        <span>Web Developer</span>
+                                      </div>
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="col-xs-3 n-p-r n-p-l"> <span>San Francisco, USA</span> </div>
+                                    <!-- Network -->
+                                    <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                    <!-- Connections -->
+                                    <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                  </div>
+                                </li>
+      
+                                <!-- MEMBER -->
+                                <li>
+                                  <div class="row">
+                                    <!-- Title -->
+                                    <div class="col-xs-4">
+                                      <!-- Check Box -->
+                                      <div class="checkbox">
+                                        <input id="checkbox3-4" class="styled" type="checkbox">
+                                        <label for="checkbox3-4"></label>
+                                      </div>
+                                      <!-- Name -->
+                                      <div class="fol-name">
+                                        <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                        <h6>Collin Weiland</h6>
+                                        <span>Web Developer</span>
+                                      </div>
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="col-xs-3 n-p-r n-p-l"> <span>San Francisco, USA</span> </div>
+                                    <!-- Network -->
+                                    <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                    <!-- Connections -->
+                                    <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                  </div>
+                                </li>
+      
+                                <!-- MEMBER -->
+                                <li>
+                                  <div class="row">
+                                    <!-- Title -->
+                                    <div class="col-xs-4">
+                                      <!-- Check Box -->
+                                      <div class="checkbox">
+                                        <input id="checkbox3-5" class="styled" type="checkbox">
+                                        <label for="checkbox3-5"></label>
+                                      </div>
+                                      <!-- Name -->
+                                      <div class="fol-name">
+                                        <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                        <h6>Collin Weiland</h6>
+                                        <span>Web Developer</span>
+                                      </div>
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="col-xs-3 n-p-r n-p-l"> <span>San Francisco, USA</span> </div>
+                                    <!-- Network -->
+                                    <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                    <!-- Connections -->
+                                    <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                  </div>
+                                </li>
+      
+                                <!-- MEMBER -->
+                                <li>
+                                  <div class="row">
+                                    <!-- Title -->
+                                    <div class="col-xs-4">
+                                      <!-- Check Box -->
+                                      <div class="checkbox">
+                                        <input id="checkbox3-6" class="styled" type="checkbox">
+                                        <label for="checkbox3-6"></label>
+                                      </div>
+                                      <!-- Name -->
+                                      <div class="fol-name">
+                                        <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                        <h6>Collin Weiland</h6>
+                                        <span>Web Developer</span>
+                                      </div>
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="col-xs-3 n-p-r n-p-l"> <span>San Francisco, USA</span> </div>
+                                    <!-- Network -->
+                                    <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                    <!-- Connections -->
+                                    <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                  </div>
+                                </li>
+      
+                                <!-- MEMBER -->
+                                <li>
+                                  <div class="row">
+                                    <!-- Title -->
+                                    <div class="col-xs-4">
+                                      <!-- Check Box -->
+                                      <div class="checkbox">
+                                        <input id="checkbox3-7" class="styled" type="checkbox">
+                                        <label for="checkbox3-7"></label>
+                                      </div>
+                                      <!-- Name -->
+                                      <div class="fol-name">
+                                        <div class="avatar"> <img src="assets/images/sm-avatar.jpg" alt=""> </div>
+                                        <h6>Collin Weiland</h6>
+                                        <span>Web Developer</span>
+                                      </div>
+                                    </div>
+                                    <!-- Location -->
+                                    <div class="col-xs-3 n-p-r n-p-l"> <span>San Francisco, USA</span> </div>
+                                    <!-- Network -->
+                                    <div class="col-xs-3 n-p-r"> <span>21 Followers</span> <span>10 Following</span> </div>
+                                    <!-- Connections -->
+                                    <div class="col-xs-2 n-p-r n-p-l"> <span>31 Connections</span> </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Footer -->
+        <div class="uou-block-4e">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-sm-6"> <a href="#" class="logo"><img src="assets/images/logo.png" alt=""></a>
+                <ul class="contact-info has-bg-image contain" data-bg-image="images/footer-map-bg.png">
+                  <li> <i class="fa fa-map-marker"></i>
+                    <address>
+                      795 Folsom Ave, Suite 600, San Francisco, CA 94107
+                    </address>
+                  </li>
+                  <li> <i class="fa fa-phone"></i> <a href="tel:#">(123) 456-7890</a> </li>
+                  <li> <i class="fa fa-envelope"></i> <a href="mailto:#">first.last@example.com</a> </li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <h5>Twitter Feed</h5>
+                <ul class="twitter-feed">
+                  <li> RT <a href="#">@no1son</a>: Now this <a href="#">http://t.co/TSfMW1qMAW</a> is one hell of a stunning
+                    site!!! Awesome work guys <a href="#">@AIRNAUTS</a> <a href="#" class="time">May 25</a> </li>
+                  <li> Check out the wordpress version of Tucson - <a href="#">http://t.co/sBlU3GbapT</a> <a href="#"
+                      class="time">May 22</a> </li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <h5>Photostream</h5>
+                <ul class="photos-list">
+                  <li><img src="assets/images/photostream4.jpg" alt=""></li>
+                  <li><img src="assets/images/photostream6.jpg" alt=""></li>
+                  <li><img src="assets/images/photostream3.jpg" alt=""></li>
+                  <li><img src="assets/images/photostream2.jpg" alt=""></li>
+                  <li><img src="assets/images/photostream1.jpg" alt=""></li>
+                  <li><img src="assets/images/photostream.jpg" alt=""></li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <h5>Newsletter</h5>
+                <p>Subscribe to our newsletter to receive our latest news and updates. We do not spam.</p>
+                <form class="newsletter-form" action="#">
+                  <input type="email" placeholder="Enter your email address">
+                  <input type="submit" class="btn btn-primary" value="Subscribe">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end .uou-block-4e -->
+      
+        <div class="uou-block-4a secondary dark">
+          <div class="container">
+            <ul class="links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms &amp; Conditions</a></li>
+            </ul>
+            <p>Copyright &copy; 2015 <a href="#">UOUAPPS</a>. All Rights reserved.</p>
+          </div>
+        </div>
+        <!-- end .uou-block-4a -->
+      
+      
+        <!-- Scripts -->
+      
+        <script>
+          $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+          })
+        </script>
+      </body>

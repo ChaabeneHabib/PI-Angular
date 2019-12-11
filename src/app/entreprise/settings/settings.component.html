@@ -120,43 +120,86 @@
 
                     </div>
 
+                      <form >
+                       <div><input type="text" ></div>
+                      </form>
+
                     <div class="col-md-12">
-                      <form>
+                      <form  [formGroup]="userForm">
                         <div class="profile-main">
                           <h3>Profil Entreprise</h3>
                           <div class="profile-in">
-                            <div class="media-middle">
-
-                            </div>
+                    
                             <div class="media-body">
 
 
                               <div class="row" style="display: flex;justify-items: center;">
                                 <div class="col-md-3">
                                   <span>Location </span>
-                                  <input type="text" class="form-control" placeholder="Location" [(ngModel)]="location"
+                                  <input type="text"  class="form-control" formControlName="location" placeholder="Location" [(ngModel)]="location"
                                     name="location">
+                                    <div *ngIf="NameC.invalid && NameC.touched">
+                                        <div *ngIf="NameC.errors.required">
+                                          nom Obligatoire
+                                        </div>
+                                        <div *ngIf="NameC.errors.minlength">
+                                          min 3 carateres
+                                        </div>
+                                      </div>
                                 </div>
                                 <div class="col-sm-4">
-                                  Secteur <input type="text" class="form-control" placeholder="Secteur"
+                                  Secteur <input type="text" formControlName="secteur"  class="form-control" placeholder="Secteur"
                                     [(ngModel)]="secteur" name="secteur">
+                                    <div *ngIf="secteurC.invalid && secteurC.touched">
+                                        <div *ngIf="secteurC.errors.required">
+                                          nom Obligatoire
+                                        </div>
+                                        <div *ngIf="secteurC.errors.minlength">
+                                          min 3 carateres
+                                        </div>
+                                      </div>
                                 </div>
                               </div>
 
                               <div class="row">
                                 <div class="col-md-3">
-                                  <input type="text" class="form-control" placeholder="Site Web" [(ngModel)]="webSite"
+                                  <input type="text" class="form-control"  formControlName="webSite"  placeholder="Site Web" [(ngModel)]="webSite"
                                     name="webSite">
+                                    <div *ngIf="WebsiteC.invalid && WebsiteC.touched">
+                                        <div *ngIf="WebsiteC.errors.required">
+                                          nom Obligatoire
+                                        </div>
+                                        <div *ngIf="WebsiteC.errors.minlength">
+                                          min 3 carateres
+                                        </div>
+                                      </div>
                                 </div>
                                 <div class="col-sm-4">
-                                  <input type="number" class="form-control" placeholder="Taille entreprise"
+                                  <input type="number" class="form-control"  formControlName="tailleE"  placeholder="Taille entreprise"
                                     [(ngModel)]="tailleE" name="tailleE">
+                                    <div *ngIf="tailleEC.invalid && tailleEC.touched">
+                                        <div *ngIf="tailleEC.errors.required">
+                                          nom Obligatoire
+                                        </div>
+                                        <div *ngIf="tailleEC.errors.minlength">
+                                          min 3 carateres
+                                        </div>
+                                      </div>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-md-3">
-                                  <input type="text" class="form-control" placeholder="type Societé"
+                                  <input type="text" class="form-control"   formControlName="typeSociete"  placeholder="type Societé"
                                     [(ngModel)]="typeSociete" name="typeSociete">
+
+                                    <div *ngIf="typeSocieteC.invalid && typeSocieteC.touched">
+                                        <div *ngIf="typeSocieteC.errors.required">
+                                          nom Obligatoire
+                                        </div>
+                                        <div *ngIf="typeSocieteC.errors.minlength">
+                                          min 3 carateres
+                                        </div>
+                                      </div>
                                 </div>
                                 <div class="col-md-3">
                                   <!--Material textarea-->
@@ -164,7 +207,16 @@
                                     <label for="form7">Material textarea</label>
                                     <i class="fas fa-pencil-alt prefix"></i>
                                     <textarea id="form10" class="md-textarea form-control" rows="3"
-                                      [(ngModel)]="description" name="description"></textarea>
+                                      [(ngModel)]="description" name="description" formControlName="description"  ></textarea>
+
+                                      <div *ngIf="descriptionC.invalid && descriptionC.touched">
+                                          <div *ngIf="descriptionC.errors.required">
+                                            nom Obligatoire
+                                          </div>
+                                          <div *ngIf="descriptionC.errors.minlength">
+                                            min 3 carateres
+                                          </div>
+                                        </div>
                                   </div>
                                   <!--Textarea with icon prefix-->
 
@@ -172,14 +224,16 @@
                               </div><br><br>
                               <div>
                                 <input [owlDateTime]="dt2" placeholder="Date Time" [(ngModel)]="Fondation"
-                                  name="Fondation">
+                                  name="Fondation" [ngModelOptions]="{standalone: true}" >
                                 <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
                                 <owl-date-time #dt2></owl-date-time>
                               </div>
                               <div *ngIf="test()">
-                                <button *ngIf="show"
-                                  (click)="updateProfil(location,secteur,webSite,tailleE,typeSociete,Fondation,user.id,description)">update</button>
-                                <button *ngIf="hide"
+                                  <div *ngIf="!secteurC.invalid && !NameC.invalid && !descriptionC.invalid && !typeSocieteC.invalid && !tailleEC.invalid && !WebsiteC.invalid ">
+                              
+                                <button  *ngIf="show"(click)="updateProfil(location,secteur,webSite,tailleE,typeSociete,Fondation,user.id,description)">update</button>
+                               </div>
+                                  <button *ngIf="hide"
                                   (click)="addProfil(location,secteur,webSite,tailleE,typeSociete,Fondation,user.id,description)"
                                   class="btn btn-info btn-lg" data-toggle="modal" data-target="#add">Ajout</button>
                               </div>
@@ -288,8 +342,8 @@
                               <!-- Share -->
                               <div class="share-w">
                                 <a (click)="supEmployer(e.id)"><i class="fa fa-bookmark-o"></i></a>
-                                 <a href="#."> <i class="fa fa-envelope-o"></i></a>
-                                  <a href="#."> <i class="fa fa-eye"></i></a></div>
+                                <a href="#."> <i class="fa fa-envelope-o"></i></a>
+                                <a href="#."> <i class="fa fa-eye"></i></a></div>
                             </div>
                           </div>
                         </div>
@@ -660,7 +714,7 @@
                 <!-- Contact -->
 
                 <div id="contacts" class="tab-pane fade">
-                  <div >
+                  <div>
                     <h3>Add Employer </h3>
                     <div class="profile-in">
                       <p>Lorem </p>
@@ -687,115 +741,118 @@
                       <div class="uou-portfolio">
                         <!-- Portfolio Item -->
                         <section class="portfolio">
-                            <div >
-                                <div class="col-md-12">
-                                  <form>
-                                    <div class="profile-main">
-                                      <h3>Offres By RH </h3>
-                                      <div class="profile-in">
-                                        <div class="media-middle">
-            
+                          <div>
+                            <div class="col-md-12">
+                              <form>
+                                <div class="profile-main">
+                                  <h3>Offres By RH </h3>
+                                  <div class="profile-in">
+                                    <div class="media-middle">
+
+                                    </div>
+                                    <div class="media-body">
+
+
+                                      <div class="row" style="display: flex;justify-items: center;">
+                                        <div class="col-md-3">
+                                          <span>Location </span>
+                                          <input type="text" class="form-control" placeholder="Location"
+                                            [(ngModel)]="locationOff" name="locationOff">
                                         </div>
-                                        <div class="media-body">
-            
-            
-                                          <div class="row" style="display: flex;justify-items: center;">
-                                            <div class="col-md-3">
-                                              <span>Location </span>
-                                              <input type="text" class="form-control" placeholder="Location"
-                                                [(ngModel)]="locationOff" name="locationOff">
-                                            </div>
-                                            <div class="col-sm-4">
-                                              Diplome <input type="text" class="form-control" placeholder="diplome"
-                                                [(ngModel)]="diplomeOff" name="diplomeOff">
-                                            </div>
-                                          </div>
-            
-                                          <div class="row">
-                                            <div class="col-md-3">
-                                              <input type="text" class="form-control" placeholder="name" [(ngModel)]="nameOff"
-                                                name="nameOff">
-                                            </div>
-            
-                                          </div>
-                                          <div class="row">
-            
-                                            <div class="col-md-3">
-                                              <!--Material textarea-->
-                                              <div class="md-form">
-                                                <label for="form7">Description</label>
-                                                <i class="fas fa-pencil-alt prefix"></i>
-                                                <textarea id="form11" class="md-textarea form-control" rows="3"
-                                                  [(ngModel)]="descriptionOffreOff" name="descriptionOffreOff"></textarea>
-                                              </div>
-                                              <!--Textarea with icon prefix-->
-            
-                                            </div>
-                                          </div><br><br>
-                                          <div>
-                                            <input [owlDateTime]="dt4" placeholder="Date Time" [(ngModel)]="dateOffreOff"
-                                              name="dateOffreOff">
-                                            <span [owlDateTimeTrigger]="dt4"><i class="fa fa-calendar"></i></span>
-                                            <owl-date-time #dt4></owl-date-time>
-                                          </div>
-                                          <div>
-            
-                                            <button (click)="addOfreRH(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff)" class="btn btn-info btn-lg">Ajouter</button>
-                                          </div>
-                                          <div class="modal fade" id="add" role="dialog">
-                                            <div class="modal-dialog">
-                                              <!-- Modal content-->
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                  <h4 class="modal-title">Modal Header</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                  <p>Some text in the modal.</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                </div>
-                                              </div>
-            
-                                            </div>
-                                          </div>
-            
+                                        <div class="col-sm-4">
+                                          Diplome <input type="text" class="form-control" placeholder="diplome"
+                                            [(ngModel)]="diplomeOff" name="diplomeOff">
                                         </div>
                                       </div>
+
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <input type="text" class="form-control" placeholder="name"
+                                            [(ngModel)]="nameOff" name="nameOff">
+                                        </div>
+
+                                      </div>
+                                      <div class="row">
+
+                                        <div class="col-md-3">
+                                          <!--Material textarea-->
+                                          <div class="md-form">
+                                            <label for="form7">Description</label>
+                                            <i class="fas fa-pencil-alt prefix"></i>
+                                            <textarea id="form11" class="md-textarea form-control" rows="3"
+                                              [(ngModel)]="descriptionOffreOff" name="descriptionOffreOff"></textarea>
+                                          </div>
+                                          <!--Textarea with icon prefix-->
+
+                                        </div>
+                                      </div><br><br>
+                                      <div>
+                                        <input [owlDateTime]="dt4" placeholder="Date Time" [(ngModel)]="dateOffreOff"
+                                          name="dateOffreOff">
+                                        <span [owlDateTimeTrigger]="dt4"><i class="fa fa-calendar"></i></span>
+                                        <owl-date-time #dt4></owl-date-time>
+                                      </div>
+                                      <div>
+
+                                        <button
+                                          (click)="addOfreRH(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff)"
+                                          class="btn btn-info btn-lg">Ajouter</button>
+                                      </div>
+                                      <div class="modal fade" id="add" role="dialog">
+                                        <div class="modal-dialog">
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">Modal Header</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Some text in the modal.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+
+                                        </div>
+                                      </div>
+
                                     </div>
-            
-                                  </form>
+                                  </div>
                                 </div>
-            
-                              </div>
+
+                              </form>
+                            </div>
+
+                          </div>
                         </section>
 
                         <h3>Liste Offre Non Traiter</h3>
                         <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nom Offre</th>
-                                <th scope="col">Description</th>
-                                <th scope=""> Status</th>
-                                <th scope="col">decision </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let on of offresNonTraiter" >
-                                <th scope="row">1</th>
-                                <td>{{on.name}}</td>
-                                <td>{{on.desciption}}</td>
-                                <td>{{on.etat}}</td>
-                                <td>
-                                  <button (click)="confirmerOffre(on)">confirmer</button>
-                                  <button>refuser</button>
-                                </td>
-                              </tr>
-                            
-                            </tbody>
-                          </table>
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Nom Offre</th>
+                              <th scope="col">Description</th>
+                              <th scope=""> Status</th>
+                              <th scope="col">decision </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let on of offresNonTraiter">
+                              <th scope="row">1</th>
+                              <td>{{on.name}}</td>
+                              <td>{{on.desciption}}</td>
+                              <td>{{on.etat}}</td>
+                              <td>
+                                <button (click)="confirmerOffre(on)">confirmer</button>
+                                <button>refuser</button>
+                              </td>
+                            </tr>
+
+                          </tbody>
+                        </table>
                       </div>
                       <!-- end uou-portfolio -->
                     </div>
@@ -808,88 +865,91 @@
                     <h3>Blog Post</h3>
                     <div class="profile-in">
                       <div class="row">
-                          <div >
-                              <div class="col-md-12">
-                                <form>
-                                  <div class="profile-main">
-                                    <h3>Offres By Cheff d'equipe </h3>
-                                    <div class="profile-in">
-                                      <div class="media-middle">
-          
-                                      </div>
-                                      <div class="media-body">
-          
-          
-                                        <div class="row" style="display: flex;justify-items: center;">
-                                          <div class="col-md-3">
-                                            <span>Location </span>
-                                            <input type="text" class="form-control" placeholder="Location"
-                                              [(ngModel)]="locationM" name="locationM">
-                                          </div>
-                                          <div class="col-sm-4">
-                                            Diplome <input type="text" class="form-control" placeholder="diplome"
-                                              [(ngModel)]="diplomeM" name="diplomeM">
-                                          </div>
-                                        </div>
-          
-                                        <div class="row">
-                                          <div class="col-md-3">
-                                            <input type="text" class="form-control" placeholder="name" [(ngModel)]="nameM"
-                                              name="nameM">
-                                          </div>
-          
-                                        </div>
-                                        <div class="row">
-          
-                                          <div class="col-md-3">
-                                            <!--Material textarea-->
-                                            <div class="md-form">
-                                              <label for="form7">Description</label>
-                                              <i class="fas fa-pencil-alt prefix"></i>
-                                              <textarea id="form12" class="md-textarea form-control" rows="3"
-                                                [(ngModel)]="descriptionOffreM" name="descriptionOffreM"></textarea>
-                                            </div>
-                                            <!--Textarea with icon prefix-->
+                        <div>
+                          <div class="col-md-12">
+                            <form>
+                              <div class="profile-main">
+                                <h3>Offres By Cheff d'equipe </h3>
+                                <div class="profile-in">
+                                  <div class="media-middle">
 
-                                          </div>
-                                        </div><br><br>
-                                        <div>
-                                          <input [owlDateTime]="dt5" placeholder="Date Time" [(ngModel)]="dateOffreM"
-                                            name="dateOffreM">
-                                          <span [owlDateTimeTrigger]="dt5"><i class="fa fa-calendar"></i></span>
-                                          <owl-date-time #dt5></owl-date-time>
-                                        </div>
-                                        <div>
-          
-                                          <button (click)="addOfreChefEquipe(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM)" class="btn btn-info btn-lg">Ajouter</button>
-                                        </div>
-                                        <div class="modal fade" id="add" role="dialog">
-                                          <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Modal Header</h4>
-                                              </div>
-                                              <div class="modal-body">
-                                                <p>Some text in the modal.</p>
-                                              </div>
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                              </div>
-                                            </div>
-          
-                                          </div>
-                                        </div>
-          
+                                  </div>
+                                  <div class="media-body">
+
+
+                                    <div class="row" style="display: flex;justify-items: center;">
+                                      <div class="col-md-3">
+                                        <span>Location </span>
+                                        <input type="text" class="form-control" placeholder="Location"
+                                          [(ngModel)]="locationM" name="locationM">
+                                      </div>
+                                      <div class="col-sm-4">
+                                        Diplome <input type="text" class="form-control" placeholder="diplome"
+                                          [(ngModel)]="diplomeM" name="diplomeM">
                                       </div>
                                     </div>
+
+                                    <div class="row">
+                                      <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="name" [(ngModel)]="nameM"
+                                          name="nameM">
+                                      </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                      <div class="col-md-3">
+                                        <!--Material textarea-->
+                                        <div class="md-form">
+                                          <label for="form7">Description</label>
+                                          <i class="fas fa-pencil-alt prefix"></i>
+                                          <textarea id="form12" class="md-textarea form-control" rows="3"
+                                            [(ngModel)]="descriptionOffreM" name="descriptionOffreM"></textarea>
+                                        </div>
+                                        <!--Textarea with icon prefix-->
+
+                                      </div>
+                                    </div><br><br>
+                                    <div>
+                                      <input [owlDateTime]="dt5" placeholder="Date Time" [(ngModel)]="dateOffreM"
+                                        name="dateOffreM">
+                                      <span [owlDateTimeTrigger]="dt5"><i class="fa fa-calendar"></i></span>
+                                      <owl-date-time #dt5></owl-date-time>
+                                    </div>
+                                    <div>
+
+                                      <button
+                                        (click)="addOfreChefEquipe(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM)"
+                                        class="btn btn-info btn-lg">Ajouter</button>
+                                    </div>
+                                    <div class="modal fade" id="add" role="dialog">
+                                      <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Modal Header</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            <p>Some text in the modal.</p>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                              data-dismiss="modal">Close</button>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+
                                   </div>
-          
-                                </form>
+                                </div>
                               </div>
-          
-                            </div>
+
+                            </form>
+                          </div>
+
+                        </div>
                       </div>
                       <!-- end row -->
 

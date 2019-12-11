@@ -81,9 +81,9 @@ SentMailEmployer( mailTo,  subject, message)
 {
   return this.http.get<any>('http://127.0.0.1:9080/pidev-web/rest/employer/sendMail?login=habib.chaabene@esprit.tn&password=183JFT0485&toAddress=habib.chaabene@esprit.tn&subject='+subject+'&message='+message);
 }
-AddOffreByRHAndManager(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM)
+AddOffreByRHAndManager(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM,id)
 {
-  return this.http.post<any>('http://127.0.0.1:9080/pidev-web/rest/offre/addOffreRoleRhAndManager?idEmployer=6&location='+locationM+'&description='+descriptionOffreM+'&diplome='+diplomeM+'&name='+nameM,this.httpOptions);
+  return this.http.post<any>('http://127.0.0.1:9080/pidev-web/rest/offre/addOffreRoleRhAndManager?idEmployer='+id+'&location='+locationM+'&description='+descriptionOffreM+'&diplome='+diplomeM+'&name='+nameM,this.httpOptions);
 }
 accepterOffre(idOffre)
 {

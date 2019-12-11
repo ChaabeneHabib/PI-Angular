@@ -3,12 +3,47 @@ import { Router , ActivatedRoute } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { EntrepriseService } from '../entreprise.service';
 import { OffreService } from 'src/app/offre/offre.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
+
+  userForm = new FormGroup({
+    location: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    secteur:new FormControl('', [Validators.required, Validators.minLength(3)]),
+    webSite:new FormControl('', [Validators.required, Validators.minLength(3)]),
+    tailleE:new FormControl('', [Validators.required, Validators.minLength(3)]),
+    typeSociete:new FormControl('', [Validators.required, Validators.minLength(3)]),
+    description:new FormControl('', [Validators.required, Validators.minLength(3)])
+   
+  });
+  get NameC() {
+    return this.userForm.get('location');
+  }
+  get secteurC()
+  {
+    return this.userForm.get('secteur');
+  }
+  get WebsiteC()
+  {
+    return this.userForm.get('webSite');
+  }
+get tailleEC()
+{
+  return this.userForm.get('tailleE');
+}
+get typeSocieteC()
+{
+  return this.userForm.get('typeSociete');
+}
+get descriptionC()
+{
+  return this.userForm.get('description');
+}
+
   items:any[] = [
     { name: "archie" }, 
     { name: "jake" }, 
@@ -39,7 +74,10 @@ export class SettingsComponent implements OnInit {
   listAbonnee:any[]=[];
   listEmployer:any[]=[];
   constructor(private route: ActivatedRoute,
-    private router: Router,public serviceEnt : EntrepriseService,notifier: NotifierService,public serviceOffre:OffreService ) {
+    private router: Router,
+    public serviceEnt : EntrepriseService,
+    notifier: NotifierService,
+    public serviceOffre:OffreService ) {
       this.notifier = notifier;
      }
   onChange(deviceValue) {
@@ -251,7 +289,7 @@ test():Boolean
   addOfreRH(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff)
   {
     console.log(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff);
-    this.serviceEnt.AddOffreByRHAndManager(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff).subscribe(res=>{
+    this.serviceEnt.AddOffreByRHAndManager(locationOff,diplomeOff,nameOff,descriptionOffreOff,dateOffreOff,this.user.id).subscribe(res=>{
       console.log("offre ajouter");
     })
   }
@@ -275,7 +313,7 @@ test():Boolean
   addOfreChefEquipe(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM)
   {
     console.log(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM);
-    this.serviceEnt.AddOffreByRHAndManager(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM).subscribe(res=>{
+    this.serviceEnt.AddOffreByRHAndManager(locationM,diplomeM,nameM,descriptionOffreM,dateOffreM,this.user.id).subscribe(res=>{
       console.log("offre ajouter");
     });
   }
